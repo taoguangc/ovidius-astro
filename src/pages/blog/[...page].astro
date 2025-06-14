@@ -1,12 +1,12 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import PostPreview from '../../components/PostPreview.astro';
-import siteConfig from '../../data/site-config.ts';
-import { sortPostsByDateDesc } from '../../utils/post-utils';
 import Subscribe from '../../components/Subscribe.astro';
+import siteConfig from '../../data/site-config.ts';
+import Layout from '../../layouts/Layout.astro';
+import { sortPostsByDateDesc } from '../../utils/post-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const posts = (await getCollection('blog')).sort(sortPostsByDateDesc);
@@ -17,7 +17,7 @@ const { page } = Astro.props as { page: Page<CollectionEntry<'blog'>> };
 const blog = page.data;
 ---
 
-<BaseLayout title="Ovidius Blog" description="Get all the latest news from Ovidius" image={{ src: '/ovidius-preview.jpg', alt: 'The preview of the site' }}>
+<Layout title="Ovidius Blog" description="Get all the latest news from Ovidius" image={{ src: '/ovidius-preview.jpg', alt: 'The preview of the site' }}>
     <main class="grow px-4 py-12 sm:px-8 sm:py-16">
         <h1 class="sr-only">Blog</h1>
         <div class="max-w-3xl xl:max-w-6xl mx-auto">
@@ -54,4 +54,4 @@ const blog = page.data;
         </nav>
         <Subscribe class="my-12 sm:my-16" />
     </main>
-</BaseLayout>
+</Layout>
