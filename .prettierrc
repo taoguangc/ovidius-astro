@@ -1,13 +1,24 @@
 {
     "printWidth": 160,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "none",
-    "tabWidth": 4,
+    "tabWidth": 2,
+    "plugins": [
+        "prettier-plugin-astro",
+        "prettier-plugin-tailwindcss"
+    ],
     "overrides": [
         {
-            "files": ["*.md", "*.mdx", "*.yaml"],
+            "files": [
+                "*.astro",
+                "*.md",
+                "*.mdx",
+                "*.yaml"
+            ],
             "options": {
-                "tabWidth": 2
+                "tailwindStylesheet": "./src/styles/global.css",
+                "parser": "astro"
             }
         }
     ]
