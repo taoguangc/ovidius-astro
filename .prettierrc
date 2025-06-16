@@ -3,7 +3,13 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "none",
-    "tabWidth": 2,
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "singleAttributePerLine": false,
+    "proseWrap": "never",
+    "htmlWhitespaceSensitivity": "ignore",
+    "embeddedLanguageFormatting": "auto",
     "plugins": [
         "prettier-plugin-astro",
         "prettier-plugin-tailwindcss"
@@ -18,7 +24,8 @@
             ],
             "options": {
                 "tailwindStylesheet": "./src/styles/global.css",
-                "parser": "astro"
+                "parser": "astro",
+                "tabWidth": 2
             }
         }
     ]
