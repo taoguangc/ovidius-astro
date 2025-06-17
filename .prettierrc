@@ -18,6 +18,8 @@
         {
             "files": [
                 "*.astro",
+                "*.ts",
+                "*.js",
                 "*.md",
                 "*.mdx",
                 "*.yaml"
