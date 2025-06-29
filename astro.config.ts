@@ -15,9 +15,6 @@ export default defineConfig({
         iconDir: 'src/assets/icons'
     })],
     image: {
-        experimentalLayout: 'constrained'
-    },
-    experimental: {
-        responsiveImages: true
-    },
+        layout: 'constrained'
+    }
 });
