@@ -1,20 +1,20 @@
 import { defineConfig } from "tinacms";
 import { BlogCollection } from "./collections/blog";
-import { GlobalConfigCollection } from "./collections/global-config";
+import { GlobalConfigCollection } from "./collections/global";
 import { PageCollection } from "./collections/page";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
+  process.env.GITHUB_BRANCH ||
+  process.env.TINA_BRANCH ||
   "main";
 
 export default defineConfig({
   branch,
 
   // Get this from tina.io
-  clientId: process.env.PUBLIC_TINA_CLIENT_ID,
+  clientId: process.env.TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
 
