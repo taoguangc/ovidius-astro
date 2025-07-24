@@ -3,24 +3,60 @@ import type { Collection } from "tinacms";
 export const PageCollection: Collection = {
   name: "page",
   label: "Pages",
-  path: "src/content/page",
-  format: "mdx",
-  ui: {
-    router: ({ document }) => {
-      return `/${document._sys.filename}`;
-    },
-  },
+  path: "src/content/pages",
   fields: [
     {
-      name: "seoTitle",
       type: "string",
-      required: true
+      name: "title",
+      label: "Title",
+      isTitle: true,
+      required: true,
     },
     {
-      name: "body",
+      type: 'image',
+      name: 'mainImage',
+      label: 'Main Image'
+    },
+    {
+      type: 'object',
+      name: 'seo',
+      label: 'SEO Settings',
+      fields: [
+        {
+          type: 'string',
+          name: 'title',
+          label: 'Meta Title',
+          description: 'This is the meta Title that will appear in search engines'
+        },
+        {
+          type: 'string',
+          name: 'description',
+          label: 'Meta Description',
+          description: 'This is the meta description that will appear in search engines'
+        },
+        {
+          type: 'object',
+          name: 'image',
+          label: 'Image',
+          fields: [
+            {
+              type: 'image',
+              name: 'src',
+              label: 'Src'
+            },
+            {
+              type: 'string',
+              name: 'alt',
+              label: 'Image Alt'
+            }
+          ]
+        }
+      ]
+    },
+    {
       type: "rich-text",
-      isBody: true,
-      required: true
+      name: "body",
+      isBody: true
     }
   ]
 }

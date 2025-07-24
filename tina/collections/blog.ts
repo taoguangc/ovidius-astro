@@ -5,7 +5,6 @@ export const BlogCollection: Collection = {
   name: "blog",
   label: "Blogs",
   path: "src/content/blog",
-  format: "mdx",
   ui: {
     router({ document }) {
       return `/blog/${document._sys.filename}`;
